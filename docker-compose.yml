@@ -1,12 +1,6 @@
 version: '3'
 
 services:
-    # shlink_nginx:
-    #     image: nginx:1.19.6-alpine
-    #     ports:
-    #         - "172.17.0.1:8734:80"
-    #     volumes:
-    #         - ./nginx/:/etc/nginx/conf.d/:ro
 
     shlink_db_mysql:
       image: mysql:latest
@@ -23,7 +17,7 @@ services:
       ports:
         - "172.17.0.1:2080:8080"
       environment:
-        - DEFAULT_DOMAIN=${DOMAIN}
+        - DEFAULT_DOMAIN=${DOMAIN}:8443
         - IS_HTTPS_ENABLED=true
         - DB_DRIVER=mysql
         - DB_USER=root
@@ -40,6 +34,6 @@ services:
       ports:
         - "172.17.0.1:2081:80"
       environment:
-        - SHLINK_SERVER_URL=https://${DOMAIN}
+        - SHLINK_SERVER_URL=https://${DOMAIN}:8443
         - SHLINK_SERVER_NAME=Main server
         - SHLINK_SERVER_API_KEY=
