@@ -13,7 +13,7 @@ ports:
     targetPort: "2080"
     targetIP: "172.17.0.1"
     public: true
-    path: "/api/"
+    path: "/"
     isAuth: false
 environments:
   - key: "SOFTWARE_VERSION_TAG"
