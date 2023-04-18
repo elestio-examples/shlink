@@ -13,5 +13,21 @@ Deploy Shlink server with CI/CD on Elestio
 You can open Shlink UI here:
 
     URL: https://[CI_CD_DOMAIN]
-    email: admin@[CI_CD_DOMAIN]
+    email: root
     password: [ADMIN_PASSWORD]
+
+You can open Shlink API here:
+
+    URL: https://[CI_CD_DOMAIN]:8443/rest/v3/health
+
+# API
+
+to access the api, add port 8443 after the domain
+
+for example, to list all urls:
+
+    curl -X GET \
+    'https://[CI_CD_DOMAIN]:8443/rest/v3/short-urls'\
+    --header 'X-Api-Key: YOUR_API_KEY'
+
+for more information: <a target="_blank" href="https://api-spec.shlink.io/">Shlink's api doc</a>
