@@ -22,9 +22,9 @@ You can open Shlink API here:
 
 # API
 
-to access the api, add port 8443 after the domain
+To access the api, add port 8443 after the domain
 
-for example, to list all urls:
+For example, to list all urls:
 
     curl -X GET \
     'https://[CI_CD_DOMAIN]:8443/rest/v3/short-urls'\
