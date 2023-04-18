@@ -21,7 +21,7 @@ services:
     shlink_app:
       image: shlinkio/shlink:${SOFTWARE_VERSION_TAG}
       ports:
-        - "172.17.0.1:8080:8080"
+        - "172.17.0.1:2080:8080"
       environment:
         - DEFAULT_DOMAIN=${DOMAIN}
         - IS_HTTPS_ENABLED=true
@@ -38,7 +38,7 @@ services:
       image: shlinkio/shlink-web-client:${SOFTWARE_VERSION_TAG}
       restart: always
       ports:
-        - "172.17.0.1:8081:80"
+        - "172.17.0.1:2081:80"
       environment:
         - SHLINK_SERVER_URL=https://${DOMAIN}
         - SHLINK_SERVER_NAME=Main server
