@@ -22,12 +22,8 @@ environments:
     value: "latest"
   - key: "ADMIN_PASSWORD"
     value: "random_password"
-  - key: "ADMIN_EMAIL"
-    value: "admin@[CI_CD_DOMAIN]"
   - key: "DOMAIN"
     value: "[CI_CD_DOMAIN]"
-  - key: "SYSTEM_IP"
-    value: "[IP]"
 
 config:
   runTime: "dockerCompose"
