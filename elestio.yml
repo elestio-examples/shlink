@@ -1,8 +1,16 @@
 ports:
   - protocol: "HTTPS"
     targetProtocol: "HTTP"
+    listeningPort: "8443"
+    targetPort: "2081"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: false
+  - protocol: "TCP"
+    targetProtocol: "TCP"
     listeningPort: "443"
-    targetPort: "8734"
+    targetPort: "2080"
     targetIP: "172.17.0.1"
     public: true
     path: "/"
@@ -37,7 +45,7 @@ lifeCycleConfig:
   postRestoreCommand: "./scripts/postRestore.sh"
   postDeployCommand: "./scripts/postDeploy.sh"
 webUI:
-  - url: "https://[CI_CD_DOMAIN]/admin"
+  - url: "https://[CI_CD_DOMAIN]:8443"
     label: "Shlink Admin"
     login: "[ADMIN_EMAIL]"
     password: "[ADMIN_PASSWORD]"

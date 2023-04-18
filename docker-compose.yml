@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-    shlink_nginx:
-        image: nginx:1.19.6-alpine
-        ports:
-            - "172.17.0.1:8734:80"
-        volumes:
-            - ./nginx/:/etc/nginx/conf.d/:ro
+    # shlink_nginx:
+    #     image: nginx:1.19.6-alpine
+    #     ports:
+    #         - "172.17.0.1:8734:80"
+    #     volumes:
+    #         - ./nginx/:/etc/nginx/conf.d/:ro
 
     shlink_db_mysql:
       image: mysql:latest
