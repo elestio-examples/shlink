@@ -31,3 +31,7 @@ For example, to list all urls:
     --header 'X-Api-Key: YOUR_API_KEY'
 
 for more information: <a target="_blank" href="https://api-spec.shlink.io/">Shlink's api doc</a>
+
+# API key
+
+You can find your api key by going to Shlink UI, choose Main Server, then in the bottom left tab click on Edit this server
