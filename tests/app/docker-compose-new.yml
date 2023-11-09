@@ -13,7 +13,7 @@ services:
         - ./data/infra/database:/var/lib/mysql
   
     shlink_app:
-      image: shlinkio/shlink:${SOFTWARE_VERSION_TAG}
+      image: elestio4test/shlink:${SOFTWARE_VERSION_TAG}
       ports:
         - "172.17.0.1:2080:8080"
       environment:
@@ -29,7 +29,7 @@ services:
         - shlink_db_mysql
 
     shlink_web_client:
-      image: elestio4test/shlink-web-client:${SOFTWARE_VERSION_TAG}
+      image: shlinkio/shlink-web-client:${SOFTWARE_VERSION_TAG}
       restart: always
       user: 0:0
       ports:
