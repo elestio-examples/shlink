@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+    shlink_db_mysql:
+      image: mysql:latest
+      restart: always
+      environment:
+        - MYSQL_DATABASE=shlink
+        - MYSQL_PASSWORD=${ADMIN_PASSWORD}
+        - MYSQL_ROOT_PASSWORD=${ADMIN_PASSWORD}
+      volumes:
+        - ./data/infra/database:/var/lib/mysql
+  
+    shlink_app:
+      image: shlinkio/shlink:${SOFTWARE_VERSION_TAG}
+      ports:
+        - "172.17.0.1:2080:8080"
+      environment:
+        - DEFAULT_DOMAIN=${DOMAIN}:2080
+        - IS_HTTPS_ENABLED=true
+        - DB_DRIVER=mysql
+        - DB_USER=root
+        - DB_PASSWORD=${ADMIN_PASSWORD}
+        - DB_HOST=shlink_db_mysql
+        - DB_PORT=3306 
+      restart: always
+      depends_on:
+        - shlink_db_mysql
+
+    shlink_web_client:
+      image: elestio4test/shlink-web-client:${SOFTWARE_VERSION_TAG}
+      restart: always
+      user: 0:0
+      ports:
+        - "172.17.0.1:2081:80"
+      environment:
+        - SHLINK_SERVER_URL=https://${DOMAIN}:2080
+        - SHLINK_SERVER_NAME=Main server
+        - SHLINK_SERVER_API_KEY=
