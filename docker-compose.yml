@@ -29,7 +29,7 @@ services:
         - shlink_db_mysql
 
     shlink_web_client:
-      image: shlinkio/shlink-web-client:${SOFTWARE_VERSION_TAG}
+      image: shlinkio/shlink-web-client:3.10
       restart: always
       ports:
         - "172.17.0.1:2081:80"
