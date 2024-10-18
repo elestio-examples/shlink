@@ -15,9 +15,9 @@ services:
     shlink_app:
       image: shlinkio/shlink:${SOFTWARE_VERSION_TAG}
       ports:
-        - "172.17.0.1:2080:8080"
+        - "172.17.0.1:8080:8080"
       environment:
-        - DEFAULT_DOMAIN=${DOMAIN}:8443
+        - DEFAULT_DOMAIN=${DOMAIN}
         - IS_HTTPS_ENABLED=true
         - DB_DRIVER=mysql
         - DB_USER=root
@@ -32,8 +32,8 @@ services:
       image: shlinkio/shlink-web-client:3.10
       restart: always
       ports:
-        - "172.17.0.1:2081:80"
+        - "172.17.0.1:8081:80"
       environment:
-        - SHLINK_SERVER_URL=https://${DOMAIN}:8443
+        - SHLINK_SERVER_URL=https://${DOMAIN}
         - SHLINK_SERVER_NAME=Main server
         - SHLINK_SERVER_API_KEY=
