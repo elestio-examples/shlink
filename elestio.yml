@@ -43,5 +43,5 @@ lifeCycleConfig:
   postRestoreCommand: "./scripts/postRestore.sh"
   postDeployCommand: "./scripts/postDeploy.sh"
 webUI:
-  - url: "https://[CI_CD_DOMAIN]:8443/rest/v3/health"
+  - url: "https://[CI_CD_DOMAIN]/rest/v3/health"
     label: "Shlink API"
